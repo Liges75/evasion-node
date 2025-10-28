@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evasion | Agence de vos rêves</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo V5Fav.png" />
+
+    <!--Lien CDN CSS Bootstrap Stylet et icônes-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <!--Lien Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Quicksand:wght@300..700&family=Sigmar&family=Sofia&display=swap" rel="stylesheet">
+
+    <!--Lien CSS perso-->
+    <link rel="stylesheet" href="stylepublic.css" />
+  
+  </head>
+  <body>
+  <header>
+    <!--Navbar Bootstrap-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="font-size: 1.8rem;padding: 0%;">
+    <div class="container-fluid" style="font-family: var(--font-title);background : linear-gradient(to top, #fded91 54%,  #4ffaf1);align-items: flex-end;">
+      
+      
+      <a href="indexpublic.html" class="navbar-brand">
+        <img src="/images/Logov4mask_long.png" alt="Evasion" width="260" height="auto">
+      </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav mx-auto"> <!-- mx-auto pour centrer -->
+        <a class="nav-link active mx-5 liennav" href="services.html" style="color: #FD7103;"><strong>Services</strong></a>
+        <a class="nav-link active mx-5 liennav" href="reservation.html" style="color: #8DC11E;"><strong>Réservation</strong></a>
+      </div>
+
+      <div class="navbar-nav ms-auto" style="margin-right: 5%;"> <!-- ms-auto pour pousser à droite -->
+        <a class="nav-link liennav" href="compte/connexion.html" style="color:#0091A4;"><strong>Se connecter</strong></a>
+      </div>
+      </div>
+    </div>
+  </nav>
+    
+
+    <!--formulaire choix de destination + calendrier de résa.-->
+
+<% if (showSearchBar) { %>    <!--limite ejs pour la barre de rechercher-->
+<!-- SECTION FORMULAIRE DATES + PERSONNES -->
+<section class="date-form text-center mt-0 p-5" style="background : linear-gradient(to bottom, #fded91, #ffffff); font-size: 1.2rem; font-family: var(--font-text); margin-bottom: 10px; width: 100%; height: auto;">
+  <form class="d-inline-flex align-items-end gap-5 flex-wrap justify-content-center">
+
+    <!-- destination -->
+    <div>
+      <label for="destination" class="form-label mb-1">Destination</label>
+      <input type="text" id="destination" class="form-control" placeholder="Où souhaitez-vous aller ?">
+    </div>
+
+    <!-- Date de départ -->
+    <div>
+      <label for="start-date" class="form-label mb-1">Date de départ</label>
+      <input type="date" id="start-date" class="form-control">
+    </div>
+
+    <!-- Date de retour -->
+    <div>
+      <label for="end-date" class="form-label mb-1">Date de retour</label>
+      <input type="date" id="end-date" class="form-control">
+    </div>
+
+    <!-- Nombre de personnes -->
+    <div>
+      <label class="form-label mb-1">Personnes</label>
+      <div class="d-flex gap-2">
+        <select class="form-select" id="adults">
+          <option value="1">1 adulte</option>
+          <option value="2">2 adultes</option>
+          <option value="3">3 adultes</option>
+          <option value="4">4 adultes</option>
+          <option value="5">5 adultes</option>
+          <option value="6">6 adultes</option>
+        </select>
+
+        <select class="form-select" id="children">
+          <option value="0">0 enfant</option>
+          <option value="1">1 enfant</option>
+          <option value="2">2 enfants</option>
+          <option value="3">3 enfants</option>
+          <option value="4">4 enfants</option>
+          <option value="5">5 enfants</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Bouton Rechercher -->
+    <div>
+      <button type="submit" class="btn btn-warning fw-bold search-btn" style="background-color: #FD7103;color: white;">Rechercher</button>
+    </div>
+
+  </form>
+</section>
+<% } else { %>
+  <section class="header-background"></section>
+<% } %> <!--limite ejs pour la barre de rechercher-->
+
+  </header>

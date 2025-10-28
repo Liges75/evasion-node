@@ -1,0 +1,147 @@
+
+
+
+
+body {
+  background-color: white;
+  font-family: "Outfit", sans-serif, "Quicksand", sans-serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background : linear-gradient(to top, #fded91, #ffffff);
+  padding: 20px 0;
+  text-align: center;
+  font-family: "Outfit", sans-serif, "Quicksand", sans-serif, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: black;
+  
+}
+
+
+
+
+
+
+/*actions sur les liens de la navbar*/
+.liennav {
+  text-decoration: none;
+  color: inherit;
+}
+
+.liennav:hover {
+  color: #ece4e4;
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+.search-input::placeholder {
+  color: #999;
+}
+
+/* Bouton Rechercher */
+
+
+.search-btn:hover {
+  background: #d55e0f;
+  transform: scale(1.02);
+
+}
+
+/* Responsive sur smartphone*/
+@media (max-width: 768px) {
+  .search-wrapper {
+    width: 90%;
+    padding: 6px 10px;
+  }
+  .search-input {
+    font-size: 1rem;
+  }
+  .search-btn {
+    padding: 6px 14px;
+  }
+
+  .smarth2 {
+    margin-top: 120px;
+    font-size: 1rem;
+  }
+}
+
+/* formulaire de recherche de date */
+.date-form {
+  background: rgba(255,255,255,0.85);
+  border-radius: 10px;
+  padding: 15px 25px;
+  display: inline-block;
+}
+.date-form label {
+  font-weight: 600;
+  color: #333;
+}
+
+
+
+/* section coup de coeur + destination à la mode */
+
+.vignette1 {
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.h3Vignette {
+
+  background-color: #FD7103;
+  margin-bottom: 0%;
+  color: white;
+}
+
+
+.pvignette {
+background-color: #FD7103;
+  color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+.vignettepays {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vignette1:hover {
+transform: scale(1.05);
+}
+
+
+/*carrousel bootstrap pour les Tendances*/
+.carrouselborder {
+  border: 2px solid #f97316;
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+
+/*lien du footer sans décoration*/
+
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: large;
+}
+
+
+/* Bande dégradée en haut quand la barre de recherche est cachée avec EJS*/
+.header-background {
+  background: linear-gradient(to bottom,
+    #fded91 45%,     /* jaune sable doux */
+    #ffffff 100%     /* blanc du fond */
+  );
+  height: 100px;     /* Ajuste la hauteur selon ton rendu */
+  width: 100%;
+}

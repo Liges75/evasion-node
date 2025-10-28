@@ -1,0 +1,164 @@
+<%- include('partials/header') %>
+
+  <main>
+
+    <div class="container-fluid" style="margin-top:5%; text-align: center;">  
+    <i class="bi bi-hearts fa-sm" style="color: #FE4A0C; font-size: xx-large;"></i>  <span style="font-size: x-large;"><strong>Vos destinations coups de cœur</strong></span>  <i class="bi bi-hearts" style="color: #FE4A0C;"></i>
+    </div>
+    <!--grille pour les 6 photos coups de coeur 3 en haut + 3 en dessous-->
+    <section class="container my-5 text-center">
+      <section class="row g-4 justify-content-center">
+        <!--colonne 1-->
+      <div class="col-md-3">
+        <div class="vignette1">
+            <img src="/images/sejourspic/hotel5.png" alt="Bali" class="img-fluid vignettepays-img" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <div>
+              <h3 class="h3Vignette">Bali</h3>
+              <p class="pvignette">À partir de 500€ par personne</p>
+            </div>
+        </div>
+      </div>
+
+        <!--colonne 2-->
+      <div class="col-md-3">
+        <div class="vignette1">
+            <img src="/images/sejourspic/hotel9.png" alt="Ibiza" class="img-fluid vignettepays-img" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <div>
+              <h3 class="h3Vignette">Ibiza</h3>
+              <p class="pvignette">À partir de 350€ par personne</p>
+            </div>
+        </div>
+      </div>
+
+        <!--colonne 3-->
+      <div class="col-md-3">
+        <div class="vignette1">
+            <img src="/images/sejourspic/hotel3.png" alt="Corse" class="img-fluid vignettepays-img" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <div>
+              <h3 class="h3Vignette">La Corse</h3>
+              <p class="pvignette">À partir de 250€ par personne</p>
+            </div>
+        </div>
+      </div>
+      </section>
+    </section>
+
+
+    <section class="container my-5 text-center">
+      <section class="row g-4 justify-content-center">
+        <!--colonne 4-->
+      <div class="col-md-3">
+        <div class="vignette1">
+            <img src="/images/sejourspic/hotel10.png" alt="Bali" class="img-fluid vignettepays-img" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <div>
+              <h3 class="h3Vignette">Biarritz</h3>
+              <p class="pvignette">À partir de 170€ par personne</p>
+            </div>
+        </div>
+      </div>
+
+        <!--colonne 5-->
+      <div class="col-md-3">
+        <div class="vignette1">
+            <img src="/images/sejourspic/paysage5.png" alt="Ibiza" class="img-fluid vignettepays-img" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <div>
+              <h3 class="h3Vignette">Avoriaz</h3>
+              <p class="pvignette">À partir de 220€ par personne</p>
+            </div>
+        </div>
+      </div>
+
+        <!--colonne 6-->
+      <div class="col-md-3">
+        <div class="vignette1">
+            <img src="/images/sejourspic/chambre13.png" alt="Corse" class="img-fluid vignettepays-img" style="border-top-left-radius: 20px; border-top-right-radius: 20px;">
+            <div>
+              <h3 class="h3Vignette">Dubai</h3>
+              <p class="pvignette">À partir de 750€ par personne</p>
+            </div>
+        </div>
+      </div>
+      </section>
+      <br>
+      <br>
+      <!-- partie Tendances-->
+    </section>
+    <div class="container-fluid" style=" text-align: center;">  
+    <p style="font-size: x-large; margin-bottom: 0%;"><strong>Tendances, clé en main !</strong></p>
+    <p style="font-size: large;margin-bottom: 0%;">Voici les destinations prisées</p>
+    </div>
+      <!--carrousel bootstrap-->
+    <div class="container my-5 text-center" >
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="true" style="width: 75%; margin: auto;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        </div>
+        <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="5000">
+                <img src="/images/sejourspic/pub1.png" class="d-block w-100 carrouselborder" alt="Evasion">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5></h5>
+                  <p></p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="/images/sejourspic/paysage1.png" class="d-block w-100 carrouselborder" alt="Sicile">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 style="font-size: xx-large;">Séjour en Sicile</h5>
+                  <p>All inclusive, dès 299€ par personne</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="/images/sejourspic/paysage2.png" class="d-block w-100 carrouselborder" alt="Maldives">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 style="font-size: xx-large;">Séjour aux Maldives</h5>
+                  <p>All inclusive, dès 985€ par personne</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="/images/sejourspic/paysage4.png" class="d-block w-100 carrouselborder" alt="Maldives">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 style="font-size: xx-large;">Séjour aux Maroc</h5>
+                  <p>All inclusive, dès 375€ par personne</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="5000">
+                <img src="/images/sejourspic/paysage10.png" class="d-block w-100 carrouselborder" alt="Grèce">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 style="font-size: xx-large;">Séjour en Grèce</h5>
+                  <p>All inclusive, dès 450€ par personne</p>
+                </div>
+        </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    </div>
+
+      <!-- bloc newsletter -->
+      <div class="container my-5 text-center" style="background : linear-gradient(to bottom, #fded91, #ffffff); padding: 1%; border-radius: 20px; width: 75%;">
+        <h2 style="font-size: x-large; margin-bottom: 0%;">Inscrivez-vous à notre newsletter</h2>
+        <p style="font-size: large; margin-bottom: 0%;">Ne ratez rien et recevez nos offres directement par mail !</p>
+        <form action="newsletter.html" method="post" class="d-flex justify-content-center" style="margin-top: 1.5%;">
+          <input type="email" class="form-control" placeholder="Entrez votre email" aria-label="Email" name="email" style="max-width: 300px; margin-right: 10px;">
+          <button type="submit" class="btn btn-primary" style="background-color: #FD7103; border-color: #FD7103;"><b>S'inscrire</b></button>
+        </form>
+        <br>
+        <p style="font-size: small; margin-top: 1%;">En saisissant votre adresse e-mail, vous acceptez de recevoir des propositions commerciales personnalisées générées automatiquement, y compris des propositions et offres de produits et services de notre part et de tiers sélectionnés (vos données ne seront pas partagées avec ces tiers). Pour plus d'informations ou pour révoquer votre consentement, consultez notre Politique de confidentialité (vous pouvez également vous désinscrire en cliquant sur le lien dans l'e-mail).</p>
+
+  </main>
+
+
+
+
+<%- include('partials/footer') %>
