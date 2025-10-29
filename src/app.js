@@ -5,8 +5,8 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan'); //Middleware d'enregistrement de requêtes HTTP pour Node.js
 
-//Middleware d'enregistrement de requêtes HTTP pour Node.js / Outil pour afficher les requêtes HTTP dans la console (utile pour voir ce qui se passe)
-//Nommé d'après Dexter , une série que vous ne devriez pas regarder avant la fin.
+// Middleware d'enregistrement de requêtes HTTP pour Node.js / Outil pour afficher les requêtes HTTP dans la console (utile pour voir ce qui se passe)
+// Nommé d'après Dexter , une série que vous ne devriez pas regarder avant la fin.
 // https://last9.io/blog/morgan-npm-and-its-role-in-node-js/
 // https://www.npmjs.com/package/morgan
 
@@ -66,6 +66,17 @@ app.post('/contact', (req, res) => {
     nom: nom
   });
 });
+
+
+// appelle de la page FAQ
+app.get('/faq', (req, res) => {
+  res.render('faq', { 
+    title: 'Questions fréquentes',
+    showSearchBar: false
+  });
+});
+
+
 
 
 
