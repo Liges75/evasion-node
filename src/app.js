@@ -38,6 +38,37 @@ app.get('/search', (req, res) => {
   });
 });
 
+// Page Contact formulaire
+app.get('/contact', (req, res) => {
+  res.render('contact', { 
+    title: 'Contactez-nous', 
+    showSearchBar: false,
+    success: false, 
+    nom: ''
+  });
+});
+
+// récupération des données du formulaire
+app.post('/contact', (req, res) => {
+  const { nom, prenom, email, sujet, message } = req.body;
+  console.log('Nouveau message reçu :');
+  console.log('Nom :', nom);
+  console.log('Prénom :', prenom);
+  console.log('Email :', email);
+  console.log('Sujet :', sujet);
+  console.log('Message :', message);
+
+  // Réaffiche la page avec un message de confirmation
+  res.render('contact', {
+    title: 'Contactez-nous',
+    showSearchBar: false,
+    success: true,
+    nom: nom
+  });
+});
+
+
+
 // ecoute du serveur
 app.listen(PORT, () => {
   console.log(`Serveur Evasion lancé sur http://localhost:${PORT}`);
