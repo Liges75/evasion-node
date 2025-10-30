@@ -6,7 +6,7 @@ const express = require('express');
 const morgan = require('morgan'); //Middleware d'enregistrement de requêtes HTTP pour Node.js
 
 // Middleware d'enregistrement de requêtes HTTP pour Node.js / Outil pour afficher les requêtes HTTP dans la console (utile pour voir ce qui se passe)
-// Nommé d'après Dexter , une série que vous ne devriez pas regarder avant la fin.
+// Nommé d'après Dexter , une série pour ne pas dire, LA SERIE !
 // https://last9.io/blog/morgan-npm-and-its-role-in-node-js/
 // https://www.npmjs.com/package/morgan
 
@@ -38,7 +38,7 @@ app.get('/search', (req, res) => {
   });
 });
 
-// Page Contact formulaire
+// Page Contact formulaire pour avancer sur le cours avec Gilbert
 app.get('/contact', (req, res) => {
   res.render('contact', { 
     title: 'Contactez-nous', 
@@ -48,7 +48,7 @@ app.get('/contact', (req, res) => {
   });
 });
 
-// récupération des données du formulaire
+// récupération des données du formulaire dans la console pour l'instant
 app.post('/contact', (req, res) => {
   const { nom, prenom, email, sujet, message } = req.body;
   console.log('Nouveau message reçu :');
@@ -58,12 +58,12 @@ app.post('/contact', (req, res) => {
   console.log('Sujet :', sujet);
   console.log('Message :', message);
 
-  // Réaffiche la page avec un message de confirmation
+  // Réaffiche la page avec un message de confirmation 
   res.render('contact', {
     title: 'Contactez-nous',
     showSearchBar: false,
     success: true,
-    nom: nom
+    nom: prenom
   });
 });
 
@@ -75,8 +75,6 @@ app.get('/faq', (req, res) => {
     showSearchBar: false
   });
 });
-
-
 
 
 
