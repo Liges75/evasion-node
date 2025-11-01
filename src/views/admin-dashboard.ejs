@@ -1,0 +1,57 @@
+<%- include('partials/header') %>
+
+<main class="container my-5">
+  <h1 class="text-center mb-4 text-danger">Tableau de bord Administrateur</h1>
+
+  <section class="card shadow p-4 mb-4">
+    <h3 class="text-primary mb-3">Bonjour, <%= user.prenom_user %></h3>
+    <p>Bienvenue dans votre espace d’administration complet.</p>
+    <p>Depuis ce tableau de bord, vous pouvez gérer :</p>
+    <ul>
+      <li>Les <strong>utilisateurs</strong> (clients, staff, admins)</li>
+      <li>Les <strong>messages de contact</strong></li>
+      <li>Les <strong>destinations</strong>, <strong>hôtels</strong> et <strong>offres</strong> (à venir)</li>
+    </ul>
+  </section>
+
+  <section class="card shadow p-4 mb-4">
+    <h3 class="text-primary mb-3">Actions rapides</h3>
+    <div class="d-flex flex-wrap gap-3">
+      <a href="/admin/utilisateurs" class="btn btn-info fw-bold text-dark">
+        <i class="bi bi-people-fill"></i> Gérer les utilisateurs
+      </a>
+      <a href="/admin/messages" class="btn btn-warning fw-bold text-white">
+        <i class="bi bi-envelope-fill"></i> Consulter les messages
+      </a>
+      <a href="/admin/ajouter-utilisateur" class="btn btn-success fw-bold text-white">
+        <i class="bi bi-person-plus-fill"></i> Ajouter un utilisateur
+      </a>
+    </div>
+  </section>
+
+  <section class="card shadow p-4 mb-4">
+    <h3 class="text-primary mb-3">Statistiques globales</h3>
+    <div class="row text-center">
+      <div class="col-md-4 mb-3">
+        <div class="p-3 border rounded shadow-sm bg-light">
+          <h4><i class="bi bi-people"></i></h4>
+          <p><strong><%= stats.nb_users || 0 %></strong> utilisateurs</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="p-3 border rounded shadow-sm bg-light">
+          <h4><i class="bi bi-envelope"></i></h4>
+          <p><strong><%= stats.nb_messages || 0 %></strong> messages reçus</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <div class="p-3 border rounded shadow-sm bg-light">
+          <h4><i class="bi bi-building"></i></h4>
+          <p><strong><%= stats.nb_hotels || 0 %></strong> hôtels enregistrés</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

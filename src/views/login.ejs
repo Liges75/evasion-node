@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<main class="container my-5" style="max-width: 500px;">
+  <h1 class="text-center mb-4">Connexion à votre espace</h1>
+
+  <% if (error) { %>
+    <div class="alert alert-danger text-center"><%= error %></div>
+  <% } %>
+
+  <% if (success) { %>
+    <div class="alert alert-success text-center"><%= success %></div>
+  <% } %>
+
+  <form method="POST" action="/login">
+    <div class="mb-3">
+      <label for="email" class="form-label">Adresse e-mail</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Mot de passe</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+
+    <button type="submit" class="btn btn-warning text-white fw-bold w-100 mt-2">Se connecter</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <a href="/forgot-password" class="text-muted text-decoration-none">Mot de passe oublié ?</a>
+  </div>
+
+  <div class="text-center mt-2">
+    <p>Pas encore de compte ? <a href="/register" class="text-decoration-none fw-bold" style="color:#FD7103;">Créer un compte</a></p>
+  </div>
+</main>
+
+<%- include('partials/footer') %>

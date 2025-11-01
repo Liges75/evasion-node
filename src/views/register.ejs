@@ -1,0 +1,88 @@
+<%- include('partials/header') %>
+
+<div class="container my-5" style="max-width: 600px;">
+  <h2 class="text-center mb-4">Créer un compte client</h2>
+
+  <% if (error) { %>
+    <div class="alert alert-danger text-center"><%= error %></div>
+  <% } %>
+
+  <% if (success) { %>
+    <div class="alert alert-success text-center">
+      Votre compte a bien été créé ! <a href="/login" class="alert-link">Connectez-vous ici</a>.
+    </div>
+  <% } %>
+
+  <form method="POST" action="/register" class="border p-4 rounded-3 shadow-sm bg-light">
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label">Nom</label>
+      <input type="text" name="nom" class="form-control" required>
+    </div>
+    <div class="col">
+      <label class="form-label">Prénom</label>
+      <input type="text" name="prenom" class="form-control" required>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Adresse e-mail</label>
+    <input type="email" name="email" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Mot de passe</label>
+    <input type="password" name="password" class="form-control" required minlength="6">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Téléphone</label>
+    <input type="text" name="tel" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date de naissance</label>
+    <input type="date" name="date_naissance" class="form-control">
+  </div>
+
+  <hr>
+
+  <h5 class="mt-4 mb-3">Adresse postale</h5>
+
+  <div class="mb-3">
+    <label class="form-label">Rue</label>
+    <input type="text" name="rue" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Complément d’adresse</label>
+    <input type="text" name="complement" class="form-control">
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-4">
+      <label class="form-label">Code postal</label>
+      <input type="text" name="code_postal" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Ville</label>
+      <input type="text" name="ville" class="form-control" required>
+    </div>
+    <div class="col-md-4">
+      <label class="form-label">Pays</label>
+      <input type="text" name="pays" class="form-control" required>
+    </div>
+  </div>
+
+  <div class="form-check mb-4">
+    <input type="checkbox" name="ok_newsletter" class="form-check-input" id="newsletter" value="1">
+    <label class="form-check-label" for="newsletter">
+      Je souhaite recevoir les offres et bons plans Evasion
+    </label>
+  </div>
+
+  <button type="submit" class="btn btn-warning w-100 fw-bold text-white">Créer mon compte</button>
+</form>
+</div>
+
+<%- include('partials/footer') %>

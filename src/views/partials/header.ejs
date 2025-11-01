@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Quicksand:wght@300..700&family=Sigmar&family=Sofia&display=swap" rel="stylesheet">
 
     <!--Lien CSS perso-->
-    <link rel="stylesheet" href="stylepublic.css" />
+    <link rel="stylesheet" href="/stylepublic.css" />
   
   </head>
   <body>
@@ -41,9 +41,40 @@
         <a class="nav-link active mx-5 liennav" href="reservation.html" style="color: #8DC11E;"><strong>Réservation</strong></a>
       </div>
 
-      <div class="navbar-nav ms-auto" style="margin-right: 5%;"> <!-- ms-auto pour pousser à droite -->
-        <a class="nav-link liennav" href="compte/connexion.html" style="color:#0091A4;"><strong>Se connecter</strong></a>
-      </div>
+    <div class="navbar-nav ms-auto" style="margin-right: 5%;">
+      <% if (!session || !session.user) { %>
+        <!-- Si Aucun utilisateur connecté -->
+        <a class="nav-link liennav" href="/login" style="color:#0091A4;">
+          <strong>Se connecter</strong>
+        </a>
+        <a class="nav-link liennav" href="/register" style="color:#FE490C;">
+          <strong>S'inscrire</strong>
+        </a>
+
+      <% } else { %>
+        <!-- Si un utilisateur est connecté -->
+        <% if (session.user.role === 2) { %>
+          <a class="nav-link liennav" href="/admin/dashboard" style="color:#0091A4;">
+            <strong>Espace Admin</strong>
+          </a>
+        <% } else if (session.user.role === 1) { %>
+          <a class="nav-link liennav" href="/staff/dashboard" style="color:#0091A4;">
+            <strong>Espace Utilisateur</strong>
+          </a>
+        <% } else if (session.user.role === 7) { %>
+          <a class="nav-link liennav" href="/client/dashboard" style="color:#0091A4;">
+            <strong>Mon Compte</strong>
+          </a>
+        <% } %>
+
+        <!-- Pour la déconnexion -->
+        <a class="nav-link liennav" href="/logout" style="color:#FE490C; margin-left:10px;">
+          <strong>Déconnexion (<%= session.user.prenom_user || session.user.prenom %>)</strong>
+        </a>
+      <% } %>
+    </div>
+
+
       </div>
     </div>
   </nav>

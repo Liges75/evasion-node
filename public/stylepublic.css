@@ -21,7 +21,24 @@ footer {
   
 }
 
+/*lien du footer sans décoration*/
 
+.footer-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: large;
+}
+
+
+/* Bande dégradée en haut quand la barre de recherche est cachée avec EJS*/
+.header-background {
+  background: linear-gradient(to bottom,
+    #fded91 45%,     /* jaune sable doux */
+    #ffffff 100%     /* blanc du fond */
+  );
+  height: 100px;     /* Ajuste la hauteur selon ton rendu */
+  width: 100%;
+}
 
 
 
@@ -127,21 +144,13 @@ transform: scale(1.05);
 }
 
 
-/*lien du footer sans décoration*/
+/* Couleur pour les messages reçus de la partie Admin */
+select.form-select-sm.status-nonlu   { background-color:#dc3545; color:#fff; font-weight:700; }
+select.form-select-sm.status-lu      { background-color:#0d6efd; color:#fff; font-weight:700; }
+select.form-select-sm.status-repondu { background-color:#ffc107; color:#212529; font-weight:700; }
+select.form-select-sm.status-classe  { background-color:#198754; color:#fff; font-weight:700; }
+select.form-select-sm.status-default { background-color:#6c757d; color:#fff; font-weight:700; }
 
-.footer-link {
-  text-decoration: none;
-  color: inherit;
-  font-size: large;
-}
-
-
-/* Bande dégradée en haut quand la barre de recherche est cachée avec EJS*/
-.header-background {
-  background: linear-gradient(to bottom,
-    #fded91 45%,     /* jaune sable doux */
-    #ffffff 100%     /* blanc du fond */
-  );
-  height: 100px;     /* Ajuste la hauteur selon ton rendu */
-  width: 100%;
-}
+/* effet pour le survol des status +  arrondi des bords*/
+select.form-select-sm { border:none; border-radius:10px; transition:transform .2s ease; }
+select.form-select-sm:hover { transform:scale(1.04); cursor:pointer; }

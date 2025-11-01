@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+
+<main class="container my-5">
+  <h1 class="text-center mb-4">Bienvenue, <%= user.prenom_user %></h1>
+
+  <section class="card shadow p-4 mb-5">
+    <h3 class="mb-3 text-primary">Mes informations personnelles</h3>
+    <p><strong>Nom :</strong> <%= user.nom_user %></p>
+    <p><strong>Prénom :</strong> <%= user.prenom_user %></p>
+    <p><strong>Email :</strong> <%= user.email_user %></p>
+    <p><strong>Téléphone :</strong> <%= user.tel_user %></p>
+    <% if (user.date_naissance) { %>
+      <p><strong>Date de naissance :</strong> <%= new Date(user.date_naissance).toLocaleDateString('fr-FR') %></p>
+    <% } %>
+    <p><strong>Date d’inscription :</strong> <%= new Date(user.date_inscription).toLocaleDateString('fr-FR') %></p>
+  </section>
+
+  <section class="card shadow p-4">
+    <h3 class="mb-3 text-primary">Mes réservations</h3>
+    <% if (reservations && reservations.length > 0) { %>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Destination</th>
+            <th>Date d’arrivée</th>
+            <th>Date de départ</th>
+            <th>Montant total</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% reservations.forEach(r => { %>
+            <tr>
+              <td><%= r.nom_destination %></td>
+              <td><%= new Date(r.date_arrivee).toLocaleDateString('fr-FR') %></td>
+              <td><%= new Date(r.date_depart).toLocaleDateString('fr-FR') %></td>
+              <td><%= r.montant_total %> €</td>
+              <td><span class="badge bg-info text-dark"><%= r.statut_reservation %></span></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p class="text-muted">Aucune réservation trouvée pour le moment.</p>
+    <% } %>
+  </section>
+</main>
+
+<%- include('partials/footer') %>
