@@ -1,3 +1,30 @@
 node_modules/
 .env
 .DS_Store
+
+# === Node.js & environnement ===
+node_modules/
+.env
+*.env
+.env.*
+/.env
+
+# === Logs & cache ===
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === Système / IDE ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === Build / Temp ===
+dist/
+tmp/
+
+
+../.env
