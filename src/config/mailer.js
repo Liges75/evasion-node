@@ -1,4 +1,4 @@
-// ajout de la possibilité d'envoyer un email à l'utilisateur poen cas de mot de passe oublié
+// ajout de la possibilité d'envoyer un email à l'utilisateur poen cas de mot de passe oublié avec module nodemailer
 
 const nodemailer = require('nodemailer');
 

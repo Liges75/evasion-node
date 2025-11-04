@@ -154,3 +154,8 @@ select.form-select-sm.status-default { background-color:#6c757d; color:#fff; fon
 /* effet pour le survol des status +  arrondi des bords*/
 select.form-select-sm { border:none; border-radius:10px; transition:transform .2s ease; }
 select.form-select-sm:hover { transform:scale(1.04); cursor:pointer; }
+
+
+.text-warning {
+  color: #f5c518 !important; /* etoile dorée pour les hotel */
+}

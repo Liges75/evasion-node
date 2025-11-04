@@ -1,9 +1,173 @@
-<%- include('partials/header') %>
+<%- include('partials/header', { title }) %>
 
-<main class="container mt-5 text-center">
-  <h1 class="mb-4"><%= title %></h1>
-  <p>Voici la page des résultats de recherche</p>
-  <p>à completer avec Amadeus asap</p>
-</main>
+<div class="container my-5 text-center">
+  <h2 class="fw-bold mb-3"><%= title %></h2>
+  <p class="text-muted mb-5">
+    Du <%= checkIn %> au <%= checkOut %> – <%= hotels.length %> hôtels trouvés
+  </p>
+
+  <!-- 🔍 Filtres -->
+  <div class="row justify-content-center mb-5">
+    <div class="col-lg-10 d-flex flex-wrap justify-content-center align-items-center gap-3">
+      <div>
+        <label for="filter-stars" class="me-2 mb-0">Étoiles :</label>
+        <select id="filter-stars" class="form-select d-inline w-auto">
+          <option value="all">Toutes</option>
+          <option value="5">★★★★★</option>
+          <option value="4">★★★★☆ et plus</option>
+          <option value="3">★★★☆ et plus</option>
+          <option value="2">★★☆ et plus</option>
+          <option value="1">★ et plus</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="sort-price" class="me-2 mb-0">Trier par prix :</label>
+        <select id="sort-price" class="form-select d-inline w-auto">
+          <option value="none">Aucun</option>
+          <option value="asc">Croissant</option>
+          <option value="desc">Décroissant</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="me-2 mb-0">Prix (€) :</label>
+        <input type="number" id="min-price" class="form-control d-inline w-auto" placeholder="min" min="0" style="width:90px;">
+        <span class="mx-1">–</span>
+        <input type="number" id="max-price" class="form-control d-inline w-auto" placeholder="max" min="0" style="width:90px;">
+      </div>
+
+      <button id="reset-filters" class="btn btn-outline-secondary btn-sm ms-3">Réinitialiser</button>
+    </div>
+  </div>
+
+  <!-- Grille de résultats -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center">
+    <% hotels.slice(0, 12).forEach(h => { %>
+      <div class="col">
+        <div class="vignette1 shadow-sm h-100 d-flex flex-column">
+          <img src="<%= h.image %>" alt="<%= h.nom %>" class="img-fluid vignettepays-img"
+               style="border-top-left-radius: 20px; border-top-right-radius: 20px">
+          <div class="flex-grow-2 d-flex flex-column justify-content-between p-2">
+            <div>
+              <h3 class="h3Vignette mb-1"><%= h.nom %></h3>
+              <p class="pvignette mb-2">À partir de <%= h.tarifToutInclus %>€ par personne</p>
+            </div>
+            <a href="/hotel/<%= h.id %>?city=<%= city %>&checkIn=<%= checkIn %>&checkOut=<%= checkOut %>&guests=<%= guests %>"
+               class="btn mt-2"
+               style="background-color:#8DC11E; color:white; border:none; font-weight:600;">
+              Voir le détail
+            </a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
+
+
+<!-- JS de filtrage -->
+<script>
+  const hotels = Array.from(document.querySelectorAll('.vignette1'));
+  const filterStars = document.getElementById('filter-stars');
+  const sortPrice = document.getElementById('sort-price');
+  const minPrice = document.getElementById('min-price');
+  const maxPrice = document.getElementById('max-price');
+  const resetFilters = document.getElementById('reset-filters');
+
+  function getStarsValue(str) {
+    const match = str.match(/★/g);
+    return match ? match.length : 0;
+  }
+
+  function getPriceValue(str) {
+    const match = str.match(/(\d+([.,]\d+)?)/);
+    return match ? parseFloat(match[1].replace(',', '.')) : 0;
+  }
+
+  function applyFilters() {
+    const selectedStars = filterStars.value;
+    const sorted = sortPrice.value;
+    const min = parseFloat(minPrice.value) || 0;
+    const max = parseFloat(maxPrice.value) || Infinity;
+
+    let visibleHotels = hotels.slice();
+
+    if (selectedStars !== 'all') {
+      visibleHotels = visibleHotels.filter(card => {
+        const starsText = card.querySelector('.h3Vignette')?.innerText || '';
+        const stars = getStarsValue(starsText);
+        return stars >= parseInt(selectedStars);
+      });
+    }
+
+    visibleHotels = visibleHotels.filter(card => {
+      const price = getPriceValue(card.querySelector('.pvignette').innerText);
+      return price >= min && price <= max;
+    });
+
+    if (sorted !== 'none') {
+      visibleHotels.sort((a, b) => {
+        const priceA = getPriceValue(a.querySelector('.pvignette').innerText);
+        const priceB = getPriceValue(b.querySelector('.pvignette').innerText);
+        return sorted === 'asc' ? priceA - priceB : priceB - priceA;
+      });
+    }
+
+    const row = document.querySelector('.row.g-4');
+    row.innerHTML = '';
+    visibleHotels.forEach(h => row.appendChild(h));
+  }
+
+  resetFilters.addEventListener('click', () => {
+    filterStars.value = 'all';
+    sortPrice.value = 'none';
+    minPrice.value = '';
+    maxPrice.value = '';
+    applyFilters();
+  });
+
+  [filterStars, sortPrice, minPrice, maxPrice].forEach(el => el.addEventListener('input', applyFilters));
+
+  applyFilters();
+</script>
+
+<!-- Styles -->
+<style>
+  .vignette1 {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    background-color: #FD7103;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding-bottom: 2px;
+  }
+  .vignette1:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .vignette1 .btn {
+  margin-top: 5px;
+  padding: 6px;
+}
+  .h3Vignette {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    margin-top: 10px;
+    color: white;
+  }
+  .pvignette {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .vignettepays-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+</style>
 
 <%- include('partials/footer') %>

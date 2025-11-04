@@ -85,56 +85,72 @@
 <% if (showSearchBar) { %>    <!--limite ejs pour la barre de rechercher-->
 <!-- SECTION FORMULAIRE DATES + PERSONNES -->
 <section class="date-form text-center mt-0 p-5" style="background : linear-gradient(to bottom, #fded91, #ffffff); font-size: 1.2rem; font-family: var(--font-text); margin-bottom: 10px; width: 100%; height: auto;">
-  <form class="d-inline-flex align-items-end gap-5 flex-wrap justify-content-center">
+<form action="/search" method="get" class="d-inline-flex align-items-end gap-5 flex-wrap justify-content-center">
 
-    <!-- destination -->
-    <div>
-      <label for="destination" class="form-label mb-1">Destination</label>
-      <input type="text" id="destination" class="form-control" placeholder="Où souhaitez-vous aller ?">
+  <!-- destination -->
+  <div>
+    <label for="destination" class="form-label mb-1">Destination</label>
+    <input 
+      type="text" 
+      id="destination" 
+      name="city" 
+      class="form-control" 
+      placeholder="Où souhaitez-vous aller ?" 
+      required
+    >
+  </div>
+
+  <!-- Date de départ -->
+  <div>
+    <label for="start-date" class="form-label mb-1">Date de départ</label>
+    <input 
+      type="date" 
+      id="start-date" 
+      name="checkIn" 
+      class="form-control" 
+      required
+    >
+  </div>
+
+  <!-- Date de retour -->
+  <div>
+    <label for="end-date" class="form-label mb-1">Date de retour</label>
+    <input 
+      type="date" 
+      id="end-date" 
+      name="checkOut" 
+      class="form-control" 
+      required
+    >
+  </div>
+
+  <!-- Nombre de personnes -->
+  <div>
+    <label class="form-label mb-1">Personnes</label>
+    <div class="d-flex gap-2">
+      <select class="form-select" id="adults" name="guests" required>
+        <option value="1">1 adulte</option>
+        <option value="2" selected>2 adultes</option>
+        <option value="3">3 adultes</option>
+        <option value="4">4 adultes</option>
+        <option value="5">5 adultes</option>
+        <option value="6">6 adultes</option>
+      </select>
     </div>
+  </div>
 
-    <!-- Date de départ -->
-    <div>
-      <label for="start-date" class="form-label mb-1">Date de départ</label>
-      <input type="date" id="start-date" class="form-control">
-    </div>
+  <!-- Bouton Rechercher -->
+  <div>
+    <button 
+      type="submit" 
+      class="btn btn-warning fw-bold search-btn" 
+      style="background-color: #FD7103;color: white;">
+      Rechercher
+    </button>
+  </div>
 
-    <!-- Date de retour -->
-    <div>
-      <label for="end-date" class="form-label mb-1">Date de retour</label>
-      <input type="date" id="end-date" class="form-control">
-    </div>
+</form>
 
-    <!-- Nombre de personnes -->
-    <div>
-      <label class="form-label mb-1">Personnes</label>
-      <div class="d-flex gap-2">
-        <select class="form-select" id="adults">
-          <option value="1">1 adulte</option>
-          <option value="2">2 adultes</option>
-          <option value="3">3 adultes</option>
-          <option value="4">4 adultes</option>
-          <option value="5">5 adultes</option>
-          <option value="6">6 adultes</option>
-        </select>
-
-        <select class="form-select" id="children">
-          <option value="0">0 enfant</option>
-          <option value="1">1 enfant</option>
-          <option value="2">2 enfants</option>
-          <option value="3">3 enfants</option>
-          <option value="4">4 enfants</option>
-          <option value="5">5 enfants</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Bouton Rechercher -->
-    <div>
-      <button type="submit" class="btn btn-warning fw-bold search-btn" style="background-color: #FD7103;color: white;">Rechercher</button>
-    </div>
-
-  </form>
 </section>
 <% } else { %>
   <section class="header-background"></section>
